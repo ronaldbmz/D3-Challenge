@@ -335,6 +335,81 @@ labelsGroup.selectAll("text")
     }
   });
 
+  //y-axis labels event listener
+  labelsYGroup.selectAll("text")
+  .on("click", function() {
+    // get value of selection
+    var value = d3.select(this).attr("value");
+    
+    console.log(value)
+    
+    if (value !== chosenYAxis) {
+
+      // changes classes to change bold text
+      // replaces chosenXAxis with value
+      chosenYAxis = value;
+
+      // updates x scale for new data
+      yLinearScale = yScale(DemoghrapicData, chosenYAxis);
+
+      // updates x axis with transition
+      yAxis = renderYAxes(yLinearScale, yAxis);
+
+      // updates circles with new x values
+      circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+      textGroup = renderCirclesLabels(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+      
+      // updates tooltips with new info
+      circlesGroup = updateToolTip(chosenXAxis, chosenYAxis ,circlesGroup);
+      
+      if (value === "healthcare") {
+  
+        ObeseLabel
+          .classed("active", false)
+          .classed("inactive", true);
+        SmokesLabel
+          .classed("active", false)
+          .classed("inactive", true);
+        HealthcareLabel
+          .classed("active", true)
+          .classed("inactive", false);
+      }
+      
+      else if (value === "smokes") {
+          
+        ObeseLabel
+          .classed("active", false)
+          .classed("inactive", true);
+        SmokesLabel
+          .classed("active", true)
+          .classed("inactive", false);
+        HealthcareLabel
+          .classed("active", false)
+          .classed("inactive", true);
+      }
+      
+      else if (value === "obesity") {
+          
+        ObeseLabel
+          .classed("active", true)
+          .classed("inactive", false);
+        SmokesLabel
+          .classed("active", false)
+          .classed("inactive", true);
+        HealthcareLabel
+          .classed("active", false)
+          .classed("inactive", true);
+      }
+      
+      
+    }
+  });
+
+}).catch(function(error) {
+console.log(error);
+});
+
+
 
 
 

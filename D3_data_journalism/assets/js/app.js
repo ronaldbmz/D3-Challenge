@@ -193,9 +193,8 @@ var circlesGroup = chartGroup.selectAll("circle")
 
 
 // append initial circles labels
-data_new = DemoghrapicData
   var textGroup = chartGroup.selectAll("text")
-    .data(data_new)
+    .data(DemoghrapicData)
     .enter()
     .append("text")
 	//.join("text")

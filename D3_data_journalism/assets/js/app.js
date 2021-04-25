@@ -159,7 +159,25 @@ d3.csv("/assets/data/data.csv").then(function(DemoghrapicData, err) {
       data.abbr = data.abbr
     });
   
+// xLinearScale function above csv import
+var xLinearScale = xScale(DemoghrapicData, chosenXAxis);
+  
+// yLinearScale function above csv import
+var yLinearScale = yScale(DemoghrapicData, chosenYAxis);
 
+// Create initial axis functions
+var bottomAxis = d3.axisBottom(xLinearScale);
+var leftAxis = d3.axisLeft(yLinearScale);
+
+// append x axis
+var xAxis = chartGroup.append("g")
+.classed("x-axis", true)
+.attr("transform", `translate(0, ${height})`)
+.call(bottomAxis);
+
+var yAxis = chartGroup.append("g")
+.classed("y-axis", true)
+.call(leftAxis);
 
 
 

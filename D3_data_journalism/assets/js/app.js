@@ -210,6 +210,30 @@ data_new = DemoghrapicData
 	.attr("fill", "white");
 
 
+// Create group for x-axis labels
+var labelsGroup = chartGroup.append("g")
+.attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+var PovertyLabel = labelsGroup.append("text")
+.attr("x", 0)
+.attr("y", 20)
+.attr("value", "poverty") // value to grab for event listener
+.classed("active", true)
+.text("In Poverty (%)");
+
+var AgeLabel = labelsGroup.append("text")
+.attr("x", 0)
+.attr("y", 40)
+.attr("value", "age") // value to grab for event listener
+.classed("inactive", true)
+.text("Age (Median)");
+
+var IncomeLabel = labelsGroup.append("text")
+.attr("x", 0)
+.attr("y", 60)
+.attr("value", "income") // value to grab for event listener
+.classed("inactive", true)
+.text("Household Income (Median)");
 
 
 

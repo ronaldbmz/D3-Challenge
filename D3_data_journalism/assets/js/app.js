@@ -235,7 +235,33 @@ var IncomeLabel = labelsGroup.append("text")
 .classed("inactive", true)
 .text("Household Income (Median)");
 
+// Create group for x-axis labels
+var labelsYGroup = chartGroup.append("g")
+.attr("transform", "rotate(-90)");
 
+var HealthcareLabel = labelsYGroup.append("text")
+.attr("x", - (height / 2))
+.attr("y", -40)
+.attr("dy", "1em")
+.attr("value", "healthcare") // value to grab for event listener
+.classed("active", true)
+.text("Lacks Healthcare (%)");
+
+var SmokesLabel = labelsYGroup.append("text")
+.attr("x", 0 - (height / 2))
+.attr("y", -60)
+.attr("dy", "1em")
+.attr("value", "smokes") // value to grab for event listener
+.classed("inactive", true)
+.text("Smokes (%)");
+
+var ObeseLabel = labelsYGroup.append("text")
+.attr("x", 0 - (height/2))
+.attr("y", -80)
+.attr("dy", "1em")
+.attr("value", "obesity") // value to grab for event listener
+.classed("inactive", true)
+.text("Obese (%)");
 
 
 

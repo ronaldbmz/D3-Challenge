@@ -29,3 +29,25 @@ var chosenXAxis = "poverty";
 
 // Initial Params for y-axis
 var chosenYAxis = "healthcare";
+
+// function used for updating x-scale var upon click on axis label
+function xScale(DemoghrapicData, chosenXAxis) {
+    // create scales
+    var xLinearScale = d3.scaleLinear()
+      .domain([d3.min(DemoghrapicData, d =>  d[chosenXAxis])-1, d3.max(DemoghrapicData, d =>  d[chosenXAxis])])
+      .range([0, width]);
+  
+    return xLinearScale;
+  
+  }
+  
+  // function used for updating y-scale var upon click on axis label
+  function yScale(DemoghrapicData, chosenYAxis) {
+    // create scales
+    var yLinearScale = d3.scaleLinear()
+      .domain([d3.min(DemoghrapicData, d => d[chosenYAxis])-1, d3.max(DemoghrapicData, d => d[chosenYAxis])])
+      .range([height, 0]);
+  
+    return yLinearScale;
+  
+  }

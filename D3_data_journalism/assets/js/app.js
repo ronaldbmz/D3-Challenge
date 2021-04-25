@@ -192,6 +192,24 @@ var circlesGroup = chartGroup.selectAll("circle")
 ;
 
 
+// append initial circles labels
+data_new = DemoghrapicData
+  var textGroup = chartGroup.selectAll("text")
+    .data(data_new)
+    .enter()
+    .append("text")
+	//.join("text")
+	.attr("font-family", "sans-serif")
+	.attr("font-weight", "bold")
+    .attr("font-size", 12)
+    .attr("dy", "0.35em")
+	.attr("x", d => xLinearScale(d[chosenXAxis]) -8)
+	.attr("y", d => yLinearScale(d[chosenYAxis]))
+	//.text(d => d.abbr)
+	.text(function(d) {return d.abbr})
+	.attr("fill", "white");
+
+
 
 
 

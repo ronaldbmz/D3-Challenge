@@ -142,6 +142,22 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   
     return circlesGroup;
   }
+
+// Retrieve data from the CSV file and execute everything below
+d3.csv("/assets/data/data.csv").then(function(DemoghrapicData, err) {
+    if (err) throw err;
+  
+    // parse data
+    DemoghrapicData.forEach(function(data) {
+      data.poverty = +data.poverty;
+      data.age = +data.age;
+      data.income = +data.income;
+      
+      data.healthcare = +data.healthcare;
+      data.smokes = +data.smokes;
+      data.obesity = +data.obesity;
+      data.abbr = data.abbr
+    });
   
 
 

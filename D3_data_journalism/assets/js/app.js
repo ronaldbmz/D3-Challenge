@@ -179,6 +179,18 @@ var yAxis = chartGroup.append("g")
 .classed("y-axis", true)
 .call(leftAxis);
 
+// append initial circles
+var circlesGroup = chartGroup.selectAll("circle")
+.data(DemoghrapicData)
+.enter()
+.append("circle")
+.attr("cx", d => xLinearScale(d[chosenXAxis]))
+.attr("cy", d => yLinearScale(d[chosenYAxis]))
+.attr("r", 20)
+.attr("fill", "blue")
+.attr("opacity", ".5")
+;
+
 
 
 

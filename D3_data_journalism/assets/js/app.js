@@ -130,7 +130,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
           return (`${d.state}<br>${xlabel}: ${d[chosenXAxis]}<br>${ylabel}: ${d[chosenYAxis]}`);
         });
   
-    chartGroup.call(toolTip);
+        circlesGroup.call(toolTip);
   
     circlesGroup.on("mouseover", function(data) {
       toolTip.show(data, this);
@@ -193,7 +193,7 @@ var circlesGroup = chartGroup.selectAll("circle")
 
 
 // append initial circles labels
-  var textGroup = chartGroup.selectAll("text")
+  var textGroup = chartGroup.selectAll()
     .data(DemoghrapicData)
     .enter()
     .append("text")
